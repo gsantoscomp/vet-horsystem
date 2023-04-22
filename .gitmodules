@@ -1,0 +1,6 @@
+[submodule "shared-vet-db"]
+	path = shared-vet-db
+	url = git@github.com:gsantoscomp/shared-vet-db.git
+[submodule "libs/shared-vet-db"]
+	path = libs/shared-vet-db
+	url = git@github.com:gsantoscomp/shared-vet-db.git
