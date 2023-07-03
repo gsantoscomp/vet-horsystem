@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return response()->json(Gsantoscomp\SharedVetDb\Models\Usuario::all());
+    return response()->json(Gsantoscomp\SharedVetDb\Models\User::all());
 });
