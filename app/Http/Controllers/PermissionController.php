@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PermissionPostRequest;
+use App\Http\Requests\PermissionPutRequest;
 use Gsantoscomp\SharedVetDb\Models\Permission;
 use Illuminate\Http\Request;
 
@@ -14,14 +16,8 @@ class PermissionController extends Controller
         return response()->json($permissions);
     }
 
-    public function store(Request $request)
+    public function store(PermissionPostRequest $request)
     {
-        $request->validate([
-            'module' => 'required',
-            'page' => 'required',
-            'user_type_id' => 'required',
-        ]);
-
         $permission = Permission::create($request->all());
 
         return response()->json(['message' => 'Permissão cadastrada com sucesso', 'data' => $permission], 201);
@@ -38,7 +34,7 @@ class PermissionController extends Controller
         return response()->json($permission);
     }
 
-    public function update(Request $request, $id)
+    public function update(PermissionPutRequest $request, $id)
     {
         $permission = Permission::find($id);
 

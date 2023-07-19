@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserTypePostRequest;
+use App\Http\Requests\UserTypePutRequest;
 use Gsantoscomp\SharedVetDb\Models\UserType;
 use Illuminate\Http\Request;
 
@@ -14,12 +16,8 @@ class UserTypeController extends Controller
         return response()->json($userTypes);
     }
 
-    public function store(Request $request)
+    public function store(UserTypePostRequest $request)
     {
-        $request->validate([
-            'type' => 'required',
-        ]);
-
         $userType = UserType::create($request->all());
 
         return response()->json(['message' => 'Tipo de usuário cadastrado com sucesso', 'data' => $userType], 201);
@@ -36,7 +34,7 @@ class UserTypeController extends Controller
         return response()->json($userType);
     }
 
-    public function update(Request $request, $id)
+    public function update(UserTypePutRequest $request, $id)
     {
         $userType = UserType::find($id);
 

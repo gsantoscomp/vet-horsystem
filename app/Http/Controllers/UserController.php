@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserPostRequest;
+use App\Http\Requests\UserPutRequest;
 use Gsantoscomp\SharedVetDb\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,14 +16,8 @@ class UserController extends Controller
         return response()->json($users);
     }
 
-    public function store(Request $request)
+    public function store(UserPostRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-
         $user = User::create($request->all());
 
         return response()->json(['message' => 'Usuário cadastrado com sucesso', 'data' => $user], 201);
@@ -38,7 +34,7 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-    public function update(Request $request, $id)
+    public function update(UserPutRequest $request, $id)
     {
         $user = User::find($id);
 
@@ -46,7 +42,10 @@ class UserController extends Controller
             return response()->json(['message' => 'Registro de usuário não encontrado'], 404);
         }
 
-        $user->update($request->all());
+        $requestData = $request->all();
+        $requestData['password'] = bcrypt($requestData['password']);
+
+        $user->update($requestData);
 
         return response()->json(['message' => 'Registro de usuário atualizado com sucesso', 'data' => $user]);
     }
