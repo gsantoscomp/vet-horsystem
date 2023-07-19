@@ -14,7 +14,7 @@ class ProcedureController extends Controller
         return response()->json($procedures);
     }
 
-    public function store(Request $request)
+    public function store(ProcedurePostRequest $request)
     {
         $request->validate([
             'name' => 'required',
@@ -38,7 +38,7 @@ class ProcedureController extends Controller
         return response()->json($procedure);
     }
 
-    public function update(Request $request, $id)
+    public function update(ProcedurePutRequest $request, $id)
     {
         $procedure = Procedure::find($id);
 

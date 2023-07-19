@@ -14,7 +14,7 @@ class AppointmentController extends Controller
         return response()->json($appointments);
     }
 
-    public function store(Request $request)
+    public function store(AppointmentPostRequest $request)
     {
         $request->validate([
             'user_id' => 'required',
@@ -39,7 +39,7 @@ class AppointmentController extends Controller
         return response()->json($appointment);
     }
 
-    public function update(Request $request, $id)
+    public function update(AppointmentPutRequest $request, $id)
     {
         $appointment = Appointment::find($id);
 

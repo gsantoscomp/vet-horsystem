@@ -14,7 +14,7 @@ class MedicineController extends Controller
         return response()->json($medicines);
     }
 
-    public function store(Request $request)
+    public function store(MedicinePostRequest $request)
     {
         $request->validate([
             'name' => 'required',
@@ -40,7 +40,7 @@ class MedicineController extends Controller
         return response()->json($medicine);
     }
 
-    public function update(Request $request, $id)
+    public function update(MedicinePutRequest $request, $id)
     {
         $medicine = Medicine::find($id);
 

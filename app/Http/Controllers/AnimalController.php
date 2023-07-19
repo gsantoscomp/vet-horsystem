@@ -23,14 +23,14 @@ class AnimalController extends Controller
         return response()->json($animal);
     }
 
-    public function store(Request $request)
+    public function store(AnimalPostRequest $request)
     {
         $animal = Animal::create($request->all());
 
         return response()->json(['message' => 'Cliente cadastrado com sucesso', 'data' => $animal], 201);
     }
 
-    public function update(Request $request, $id)
+    public function update(AnimalPutRequest $request, $id)
     {
         $animal = Animal::find($id);
         
