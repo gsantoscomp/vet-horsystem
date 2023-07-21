@@ -8,7 +8,6 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserTypeController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,66 +23,66 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->group(function () {
     Route::prefix('animals')->group(function () {
-        Route::get('/', [AnimalController::class, 'index']);
-        Route::get('/{id}', [AnimalController::class, 'show']);
-        Route::post('/', [AnimalController::class, 'store']);
-        Route::put('update/{id}', [AnimalController::class, 'update']);
-        Route::delete('delete/{id}', [AnimalController::class, 'destroy']);
+        Route::get('/', [AnimalController::class, 'index'])->name('animals.index');
+        Route::get('/{id}', [AnimalController::class, 'show'])->name('animals.show');
+        Route::post('/', [AnimalController::class, 'store'])->name('animals.store');
+        Route::put('update/{id}', [AnimalController::class, 'update'])->name('animals.update');
+        Route::delete('delete/{id}', [AnimalController::class, 'destroy'])->name('animals.destroy');
     });
 
     Route::prefix('appointment')->group(function () {
-        Route::get('/', [AppointmentController::class, 'index']);
-        Route::get('/{id}', [AppointmentController::class, 'show']);
-        Route::post('/', [AppointmentController::class, 'store']);
-        Route::put('update/{id}', [AppointmentController::class, 'update']);
-        Route::delete('delete/{id}', [AppointmentController::class, 'destroy']);
+        Route::get('/', [AppointmentController::class, 'index'])->name('appointment.index');
+        Route::get('/{id}', [AppointmentController::class, 'show'])->name('appointment.show');
+        Route::post('/', [AppointmentController::class, 'store'])->name('appointment.store');
+        Route::put('update/{id}', [AppointmentController::class, 'update'])->name('appointment.update');
+        Route::delete('delete/{id}', [AppointmentController::class, 'destroy'])->name('appointment.destroy');
     });
 
     Route::prefix('medicine')->group(function () {
-        Route::get('/', [MedicineController::class, 'index']);
-        Route::get('/{id}', [MedicineController::class, 'show']);
-        Route::post('/', [MedicineController::class, 'store']);
-        Route::put('update/{id}', [MedicineController::class, 'update']);
-        Route::delete('delete/{id}', [MedicineController::class, 'destroy']);
+        Route::get('/', [MedicineController::class, 'index'])->name('medicine.index');
+        Route::get('/{id}', [MedicineController::class, 'show'])->name('medicine.show');
+        Route::post('/', [MedicineController::class, 'store'])->name('medicine.store');
+        Route::put('update/{id}', [MedicineController::class, 'update'])->name('medicine.update');
+        Route::delete('delete/{id}', [MedicineController::class, 'destroy'])->name('medicine.destroy');
     });
 
     Route::prefix('client')->group(function () {
-        Route::get('/', [ClientController::class, 'index']);
-        Route::get('/{id}', [ClientController::class, 'show']);
-        Route::post('/', [ClientController::class, 'store']);
-        Route::put('update/{id}', [ClientController::class, 'update']);
-        Route::delete('delete/{id}', [ClientController::class, 'destroy']);
+        Route::get('/', [ClientController::class, 'index'])->name('client.index');
+        Route::get('/{id}', [ClientController::class, 'show'])->name('client.show');
+        Route::post('/', [ClientController::class, 'store'])->name('client.store');
+        Route::put('update/{id}', [ClientController::class, 'update'])->name('client.update');
+        Route::delete('delete/{id}', [ClientController::class, 'destroy'])->name('client.destroy');
     });
 
     Route::prefix('procedure')->group(function () {
-        Route::get('/', [ProcedureController::class, 'index']);
-        Route::get('/{id}', [ProcedureController::class, 'show']);
-        Route::post('/', [ProcedureController::class, 'store']);
-        Route::put('update/{id}', [ProcedureController::class, 'update']);
-        Route::delete('delete/{id}', [ProcedureController::class, 'destroy']);
+        Route::get('/', [ProcedureController::class, 'index'])->name('procedure.index');
+        Route::get('/{id}', [ProcedureController::class, 'show'])->name('procedure.show');
+        Route::post('/', [ProcedureController::class, 'store'])->name('procedure.store');
+        Route::put('update/{id}', [ProcedureController::class, 'update'])->name('procedure.update');
+        Route::delete('delete/{id}', [ProcedureController::class, 'destroy'])->name('procedure.destroy');
     });
 
     Route::prefix('userType')->group(function () {
-        Route::get('/', [UserTypeController::class, 'index']);
-        Route::get('/{id}', [UserTypeController::class, 'show']);
-        Route::post('/', [UserTypeController::class, 'store']);
-        Route::put('update/{id}', [UserTypeController::class, 'update']);
-        Route::delete('delete/{id}', [UserTypeController::class, 'destroy']);
+        Route::get('/', [UserTypeController::class, 'index'])->name('userType.index');
+        Route::get('/{id}', [UserTypeController::class, 'show'])->name('userType.show');
+        Route::post('/', [UserTypeController::class, 'store'])->name('userType.store');
+        Route::put('update/{id}', [UserTypeController::class, 'update'])->name('userType.update');
+        Route::delete('delete/{id}', [UserTypeController::class, 'destroy'])->name('userType.destroy');
     });
 
     Route::prefix('user')->group(function () {
-        Route::get('/', [UserController::class, 'index']);
-        Route::get('/{id}', [UserController::class, 'show']);
-        Route::post('/', [UserController::class, 'store']);
-        Route::put('update/{id}', [UserController::class, 'update']);
-        Route::delete('delete/{id}', [UserController::class, 'destroy']);
+        Route::get('/', [UserController::class, 'index'])->name('user.index');
+        Route::get('/{id}', [UserController::class, 'show'])->name('user.show');
+        Route::post('/', [UserController::class, 'store'])->name('user.store');
+        Route::put('update/{id}', [UserController::class, 'update'])->name('user.update');
+        Route::delete('delete/{id}', [UserController::class, 'destroy'])->name('user.destroy');
     });
 
     Route::prefix('permission')->group(function () {
-        Route::get('/', [PermissionController::class, 'index']);
-        Route::get('/{id}', [PermissionController::class, 'show']);
-        Route::post('/', [PermissionController::class, 'store']);
-        Route::put('update/{id}', [PermissionController::class, 'update']);
-        Route::delete('delete/{id}', [PermissionController::class, 'destroy']);
+        Route::get('/', [PermissionController::class, 'index'])->name('permission.index');
+        Route::get('/{id}', [PermissionController::class, 'show'])->name('permission.show');
+        Route::post('/', [PermissionController::class, 'store'])->name('permission.store');
+        Route::put('update/{id}', [PermissionController::class, 'update'])->name('permission.update');
+        Route::delete('delete/{id}', [PermissionController::class, 'destroy'])->name('permission.destroy');
     });
 });
