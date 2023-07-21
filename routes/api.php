@@ -28,7 +28,7 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/{id}', [AnimalController::class, 'show']);
         Route::post('/', [AnimalController::class, 'store']);
         Route::put('update/{id}', [AnimalController::class, 'update']);
-        Route::delete('/{id}', [AnimalController::class, 'destroy']);
+        Route::delete('delete/{id}', [AnimalController::class, 'destroy']);
     });
 
     Route::prefix('appointment')->group(function () {
@@ -36,7 +36,7 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/{id}', [AppointmentController::class, 'show']);
         Route::post('/', [AppointmentController::class, 'store']);
         Route::put('update/{id}', [AppointmentController::class, 'update']);
-        Route::delete('/{id}', [AppointmentController::class, 'destroy']);
+        Route::delete('delete/{id}', [AppointmentController::class, 'destroy']);
     });
 
     Route::prefix('medicine')->group(function () {
@@ -44,7 +44,7 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/{id}', [MedicineController::class, 'show']);
         Route::post('/', [MedicineController::class, 'store']);
         Route::put('update/{id}', [MedicineController::class, 'update']);
-        Route::delete('/{id}', [MedicineController::class, 'destroy']);
+        Route::delete('delete/{id}', [MedicineController::class, 'destroy']);
     });
 
     Route::prefix('client')->group(function () {
@@ -52,7 +52,7 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/{id}', [ClientController::class, 'show']);
         Route::post('/', [ClientController::class, 'store']);
         Route::put('update/{id}', [ClientController::class, 'update']);
-        Route::delete('/{id}', [ClientController::class, 'destroy']);
+        Route::delete('delete/{id}', [ClientController::class, 'destroy']);
     });
 
     Route::prefix('procedure')->group(function () {
@@ -60,7 +60,7 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/{id}', [ProcedureController::class, 'show']);
         Route::post('/', [ProcedureController::class, 'store']);
         Route::put('update/{id}', [ProcedureController::class, 'update']);
-        Route::delete('/{id}', [ProcedureController::class, 'destroy']);
+        Route::delete('delete/{id}', [ProcedureController::class, 'destroy']);
     });
 
     Route::prefix('userType')->group(function () {
@@ -68,7 +68,7 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/{id}', [UserTypeController::class, 'show']);
         Route::post('/', [UserTypeController::class, 'store']);
         Route::put('update/{id}', [UserTypeController::class, 'update']);
-        Route::delete('/{id}', [UserTypeController::class, 'destroy']);
+        Route::delete('delete/{id}', [UserTypeController::class, 'destroy']);
     });
 
     Route::prefix('user')->group(function () {
@@ -76,7 +76,7 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/{id}', [UserController::class, 'show']);
         Route::post('/', [UserController::class, 'store']);
         Route::put('update/{id}', [UserController::class, 'update']);
-        Route::delete('/{id}', [UserController::class, 'destroy']);
+        Route::delete('delete/{id}', [UserController::class, 'destroy']);
     });
 
     Route::prefix('permission')->group(function () {
@@ -84,6 +84,6 @@ Route::middleware('auth:api')->group(function () {
         Route::get('/{id}', [PermissionController::class, 'show']);
         Route::post('/', [PermissionController::class, 'store']);
         Route::put('update/{id}', [PermissionController::class, 'update']);
-        Route::delete('/{id}', [PermissionController::class, 'destroy']);
+        Route::delete('delete/{id}', [PermissionController::class, 'destroy']);
     });
 });
