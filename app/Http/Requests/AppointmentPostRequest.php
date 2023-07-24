@@ -9,7 +9,7 @@ class AppointmentPostRequest extends BaseRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -20,7 +20,7 @@ class AppointmentPostRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'user_id' => 'required|string|exists:users,id',
+            'client_id' => 'required|string|exists:clients,id',
             'animal_id' => 'required|string|exists:animals,id',
         ];
     }

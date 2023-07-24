@@ -24,7 +24,8 @@ class ClientPostRequest extends BaseRequest
             'name' => 'required|string',
             'phone_number' => 'required|string',
             'email' => 'required|email|unique:clients,email',
-            'cpf' => 'required|string|unique:clients,cpf',
+            'document_type' => 'required|string',
+            'document' => 'required|string|unique:clients,document',
             'address' => 'required|string',
         ];
     }

@@ -13,6 +13,10 @@ class UserController extends Controller
     {
         $users = User::all();
 
+        foreach ($users as $user){
+            $user->userType;
+        }
+
         return response()->json($users);
     }
 

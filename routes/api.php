@@ -52,6 +52,7 @@ Route::middleware('auth:api')->group(function () {
         Route::post('/', [ClientController::class, 'store'])->name('client.store');
         Route::put('update/{id}', [ClientController::class, 'update'])->name('client.update');
         Route::delete('delete/{id}', [ClientController::class, 'destroy'])->name('client.destroy');
+        Route::get('{id}/animals', [ClientController::class, 'animals'])->name('client.animals');
     });
 
     Route::prefix('procedure')->group(function () {

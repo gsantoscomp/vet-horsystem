@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\AppointmentPostRequest;
+use App\Http\Requests\AppointmentPutRequest;
 use Gsantoscomp\SharedVetDb\Models\Appointment;
 use Illuminate\Http\Request;
 
@@ -11,17 +12,16 @@ class AppointmentController extends Controller
     {
         $appointments = Appointment::all();
 
+        foreach ($appointments as $appointment){
+            $appointment->client;
+            $appointment->animal;
+        }
+
         return response()->json($appointments);
     }
 
     public function store(AppointmentPostRequest $request)
     {
-        $request->validate([
-            'user_id' => 'required',
-            'animal_id' => 'required',
-            'initial_date' => 'required',
-            'final_date' => 'required',
-        ]);
 
         $appointment = Appointment::create($request->all());
 

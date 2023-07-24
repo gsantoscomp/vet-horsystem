@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use Gsantoscomp\SharedVetDb\Models\Animal;
+use App\Http\Requests\AnimalPostRequest;
+use App\Http\Requests\AnimalPutRequest;
 use Illuminate\Http\Request;
 
 class AnimalController extends Controller
@@ -9,6 +11,11 @@ class AnimalController extends Controller
     public function index()
     {
         $animals = Animal::all();
+
+        foreach ($animals as $animal){
+            $animal->client;
+        }
+        
         return response()->json($animals);
     }
 

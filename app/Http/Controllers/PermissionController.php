@@ -13,6 +13,10 @@ class PermissionController extends Controller
     {
         $permissions = Permission::all();
 
+        foreach ($permissions as $permission){
+            $permission->userType;
+        }
+
         return response()->json($permissions);
     }
 

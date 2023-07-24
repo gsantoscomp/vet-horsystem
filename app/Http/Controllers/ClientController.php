@@ -62,4 +62,15 @@ class ClientController extends Controller
 
         return response()->json(['message' => 'Registro de cliente removido com sucesso'], 200);
     }
+
+    public function animals ($id)
+    {
+        $client = Client::find($id);
+
+        if (!$client) {
+            return response()->json(['message' => 'Registro de cliente não encontrado'], 404);
+        }
+
+        return response()->json(['message' => 'Registro de animais retornados com sucesso','data'=>$client->animals], 200);
+    }
 }

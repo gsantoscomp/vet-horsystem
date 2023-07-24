@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MedicinePostRequest;
+use App\Http\Requests\MedicinePutRequest;
 use Gsantoscomp\SharedVetDb\Models\Medicine;
 use Illuminate\Http\Request;
 

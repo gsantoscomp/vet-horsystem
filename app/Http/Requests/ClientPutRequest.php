@@ -22,11 +22,12 @@ class ClientPutRequest extends BaseRequest
     {
         return [
             'id' => 'required|integer|exists:clients,id',
-            'name' => 'required|string',
-            'phone_number' => 'required|string',
-            'email' => 'required|email|unique:clients,email',
-            'cpf' => 'required|string|unique:clients,cpf',
-            'address' => 'required|string',
+            'name' => 'string',
+            'phone_number' => 'string',
+            'email' => 'email|unique:clients,email,' . $this->id,
+            'document_type' => 'string|in:cpf,cnpj',
+            'document' => 'string|unique:clients,document,'. $this->id,
+            'address' => 'string',
         ];
     }
 }

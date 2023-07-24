@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProcedurePostRequest;
+use App\Http\Requests\ProcedurePutRequest;
 use Gsantoscomp\SharedVetDb\Models\Procedure;
 use Illuminate\Http\Request;
 
