@@ -1,6 +1,6 @@
 version: '3'
 services:
-    laravel.test:
+    vet-horsystem-api:
         build:
             context: ./docker/8.2
             dockerfile: Dockerfile
@@ -10,8 +10,7 @@ services:
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
-            - '8001:80'
-            - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
+            - '8002:80'
         environment:
             WWWUSER: '${WWWUSER}'
             LARAVEL_SAIL: 1
@@ -21,26 +20,7 @@ services:
             - '.:/var/www/html'
         networks:
             - auth-horsystem_horsystem
-        depends_on:
-            - redis
-    redis:
-        image: 'redis:alpine'
-        ports:
-            - '${FORWARD_REDIS_PORT:-6379}:6379'
-        volumes:
-            - 'sail-redis:/data'
-        networks:
-            - auth-horsystem_horsystem
-        healthcheck:
-            test:
-                - CMD
-                - redis-cli
-                - ping
-            retries: 3
-            timeout: 5s
+
 networks:
     auth-horsystem_horsystem:
         external: true
-volumes:
-    sail-redis:
-        driver: local
